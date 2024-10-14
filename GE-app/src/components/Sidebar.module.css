@@ -1,0 +1,34 @@
+.links-sidebar {
+  font-family: Arial;
+  list-style: none;
+  display: block;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  color: black;
+  margin-right: 1.5rem; 
+}
+
+.links-sidebar li {
+  margin: 0;
+}
+
+.links-sidebar a {
+  display: block;
+  height: 100%;
+  width: 100%; 
+  text-decoration: none;
+  color: #000000; 
+  font-size: 1.1rem;
+  padding: 10px 10px 10px; 
+  border-bottom: 4px solid transparent;
+}
+
+.links-sidebar a:hover {
+  color: #0A96FF; 
+}
+
+.links-sidebar .active {
+  border-left: 6px solid #0A96FF;
+}
+
