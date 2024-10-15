@@ -48,8 +48,8 @@ export default function Sidebar() {
 
   return (
     <div>
-      <Button onClick={toggleSidebar(true)}>
-        <img width="25" height="25" src="/hamburger.svg" />
+      <Button sx={{ paddingTop: 1.5 }} onClick={toggleSidebar(true)}>
+        <img src="/hamburger.svg" />
       </Button>
       <Drawer open={open} onClose={toggleSidebar(false)}>
         {SidebarList}

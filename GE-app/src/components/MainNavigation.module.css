@@ -16,6 +16,19 @@
   align-items: center; 
 }
 
+.sidebar-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  height: 100%;
+  max-height: 32px;
+  width: 100%;
+  max-width: 240px;
+  padding-bottom: 4px;
+}
+
 .links {
   font-family: Arial;
   display: flex;
@@ -42,3 +55,21 @@
   border-bottom: 4px solid #0A96FF; 
 }
 
+@media screen and (max-width: 767px) {
+  .hide-links {
+    display: none;
+  }
+  .adjust-buger-logo {
+    padding-top: 14px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hide-burger {
+    display: none;
+  }
+  .adjust-logo {
+    padding-left: 12px;
+    padding-bottom: 8px;
+  }
+}
