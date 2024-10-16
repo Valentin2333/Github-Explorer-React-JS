@@ -1,0 +1,124 @@
+.container {
+  display: block;
+  align-items: center;
+  max-width: 1600px;
+  width: 100%;
+  padding: 40px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.searchBarContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 42px;
+  padding-bottom: 4px;
+}
+
+.searchInput {
+  width: 300px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: arial;
+}
+
+.searchBtn {
+  margin-left: 12px;
+  padding: 8px 16px;
+  background-color: #0a96ff;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: arial;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.searchBtn:disabled {
+  background-color: #8cc9f7; 
+  color: #ffffff; 
+  cursor: not-allowed;
+}
+
+.searchBtn:enabled:hover {
+  background-color: #007acc;
+}
+
+.userList {
+  display: block;
+}
+
+.loadMoreContainer {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.loadMoreButton {
+  padding: 8px;
+  background-color: #0a96ff;
+  color: #ffffff;
+  font-family: arial;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  max-width: 1600px;
+}
+
+.loadMoreButton:hover {
+  background-color: #007acc;
+}
+ 
+.error-loading {
+  font-family: arial;
+  font-size: 16px;
+  margin-bottom: 4px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  text-align: center;   
+}
+
+.recentSearchesContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;     
+  font-family: arial; 
+}
+
+.recentSearchesBiggerText {
+  font-weight: bold;
+  margin: 8px 0 8px 0;
+  font-size: 20px;
+}
+
+.recentSearchesSmallerText {
+  margin: 8px 0 8px 0;
+  font-size: 16px;
+}
+
+.recentSearchesContainer ul {
+  list-style: none;   
+  padding: 0;
+  margin: 16px;        
+}
+
+.recentSearchesContainer li {
+  margin-bottom: 16px;     
+}
+
+.recentSearchItem button {
+  font-family: arial;
+  background: none;   
+  border: none;      
+  padding: 0;         
+  font-size: 16px;   
+  color: #808080;     
+  cursor: pointer;  
+  text-decoration: none; 
+}

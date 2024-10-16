@@ -1,5 +1,5 @@
-import GitHubUserSearch from "../components/GitHubUserSearch";
+import UserSearch from "../components/UserSearch";
 
 export default function HomePage() {
-  return <GitHubUserSearch/>;
+  return <UserSearch />;
 }

@@ -6,13 +6,19 @@ function MainNavigation() {
   return (
     <header className={classes.header}>
       <nav className={classes.nav}>
-        <div className={`${classes['adjust-buger-logo']} ${classes['sidebar-logo']}`}>
-          <div className={classes['hide-burger']} >
-          <Sidebar/>
+        <div
+          className={`${classes["adjust-buger-logo"]} ${classes["sidebar-logo"]}`}
+        >
+          <div className={classes["hide-burger"]}>
+            <Sidebar />
           </div>
-          <img className={`${classes['adjust-logo']} ${classes.logo}`} src="/logo.png" alt="Site logo" /> 
+          <img
+            className={`${classes["adjust-logo"]} ${classes.logo}`}
+            src="/logo.png"
+            alt="Site logo"
+          />
         </div>
-        <ul className={`${classes.links} ${classes['hide-links']}`}>
+        <ul className={`${classes.links} ${classes["hide-links"]}`}>
           <li className={classes.links}>
             <NavLink
               to="/"
@@ -25,7 +31,7 @@ function MainNavigation() {
           </li>
           <li className={classes.links}>
             <NavLink
-              to="/userprofile"
+              to="/users/Valentin"
               className={({ isActive }) =>
                 isActive ? classes.active : undefined
               }

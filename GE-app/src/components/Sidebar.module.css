@@ -9,18 +9,18 @@
 .links-sidebar a {
   display: block;
   text-decoration: none;
-  color: #000000; 
+  color: #000000;
   font-size: 16px;
   font-weight: bold;
-  padding: 12px 12px 12px; 
+  padding: 12px 12px 12px;
 }
 
 .links-sidebar a:hover {
-  color: #0A96FF; 
+  color: #0a96ff;
 }
 
 .links-sidebar .active {
-  border-left: 4px solid #0A96FF;
+  border-left: 4px solid #0a96ff;
 }
 
 .img-burger {

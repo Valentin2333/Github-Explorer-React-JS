@@ -17,12 +17,15 @@ export default function Sidebar() {
   const SidebarList = (
     <Box sx={{ width: 224 }} role="presentation" onClick={toggleSidebar(false)}>
       <List>
-        <Button sx={{paddingTop:2, marginLeft: 20, paddingBottom: 2 }} onClick={toggleSidebar(false)}>
+        <Button
+          sx={{ paddingTop: 2, marginLeft: 20, paddingBottom: 2 }}
+          onClick={toggleSidebar(false)}
+        >
           <img src="/times.svg" alt="Close sidebar" />
         </Button>
         <ul className={classes["links-sidebar"]}>
           <li>
-            <NavLink  
+            <NavLink
               to="/"
               className={({ isActive }) =>
                 isActive ? classes.active : undefined
@@ -33,7 +36,7 @@ export default function Sidebar() {
           </li>
           <li>
             <NavLink
-              to="/userprofile"
+              to="/users/Valentin"
               className={({ isActive }) =>
                 isActive ? classes.active : undefined
               }
