@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import classes from "./UserSearch.module.css";
 import UserCard from "./UserCard";
+import ErrorMessage from "./ErrorMessage";
 
 function UserSearch() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -10,6 +11,7 @@ function UserSearch() {
   const [page, setPage] = useState(1);
   const [totalUsers, setTotalUsers] = useState(0);
   const [recentSearches, setRecentSearches] = useState([]);
+  const [isLoadMoreVisible, setIsLoadMoreVisible] = useState(true); // New state
 
   useEffect(() => {
     const savedSearches =
@@ -31,6 +33,7 @@ function UserSearch() {
   async function fetchUsers(query, page = 1) {
     setIsLoading(true);
     setError(null);
+    setIsLoadMoreVisible(false);
 
     try {
       const response = await fetch(
@@ -53,9 +56,10 @@ function UserSearch() {
         saveToRecentSearches(query);
       }
     } catch (error) {
-      setError("Unable to fetch users. Please try again later.");
+      setError("Unable to fetch users.");
     } finally {
       setIsLoading(false);
+      setIsLoadMoreVisible(true);
     }
   }
 
@@ -96,7 +100,7 @@ function UserSearch() {
         />
         <button
           className={classes.searchBtn}
-          disabled={!searchQuery.trim()}
+          disabled={!searchQuery.trim() || error === "Unable to fetch users."}
           onClick={handleSearch}
         >
           Search
@@ -105,7 +109,11 @@ function UserSearch() {
 
       {isLoading && <p className={classes["error-loading"]}>Loading...</p>}
 
-      {error && <p className={classes["error-loading"]}>{error}</p>}
+      <ErrorMessage
+        error={error}
+        resetError={() => setError(null)}
+        setIsLoadMoreVisible={setIsLoadMoreVisible}
+      />
 
       {visibleUsers.length === 0 && recentSearches.length > 0 && (
         <div className={classes.recentSearchesContainer}>
@@ -133,15 +141,19 @@ function UserSearch() {
           <UserCard key={userProfile.id} user={userProfile} />
         ))}
 
-        {!isLoading && !error && hasMoreUsers && (
-          <div className={classes.loadMoreContainer}>
-            <button className={classes.loadMoreButton} onClick={loadMoreUsers}>
-              Load More
-            </button>
-          </div>
-        )}
-
-        {error && visibleUsers.length > 1 && <p className={classes["error-loading"]}>{error}</p>}
+        {!isLoading &&
+          hasMoreUsers &&
+          isLoadMoreVisible &&
+          visibleUsers.length > 0 && (
+            <div className={classes.loadMoreContainer}>
+              <button
+                className={classes.loadMoreButton}
+                onClick={loadMoreUsers}
+              >
+                Load More
+              </button>
+            </div>
+          )}
       </div>
     </div>
   );
