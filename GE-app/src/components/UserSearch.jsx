@@ -11,7 +11,7 @@ function UserSearch() {
   const [page, setPage] = useState(1);
   const [totalUsers, setTotalUsers] = useState(0);
   const [recentSearches, setRecentSearches] = useState([]);
-  const [isLoadMoreVisible, setIsLoadMoreVisible] = useState(true); // New state
+  const [isLoadMoreVisible, setIsLoadMoreVisible] = useState(true); 
 
   useEffect(() => {
     const savedSearches =
