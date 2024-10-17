@@ -17,7 +17,7 @@ function ErrorMessage({ error, resetError, setIsLoadMoreVisible }) {
       }, 60000);
     } else {
       setTimer(3.5);
-      timeout = setTimeout(() => resetError(), 1200);
+      timeout = setTimeout(() => resetError(), 2500);
     }
 
     return () => clearTimeout(timeout);
