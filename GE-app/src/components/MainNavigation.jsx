@@ -1,8 +1,14 @@
 import { NavLink } from "react-router-dom";
 import classes from "./MainNavigation.module.css";
 import Sidebar from "./Sidebar";
+import ErrorMessage from "./ErrorMessage";
+import { ErrorContext } from "./ErrorContext";
+import { useContext } from "react";
 
-function MainNavigation() {
+export default function MainNavigation() {
+  const { error, setError } = useContext(ErrorContext);
+  const { isLoadMoreVisible, setIsLoadMoreVisible } = useContext(ErrorContext);
+
   return (
     <header className={classes.header}>
       <nav className={classes.nav}>
@@ -18,6 +24,13 @@ function MainNavigation() {
             alt="Site logo"
           />
         </div>
+
+        <ErrorMessage
+          error={error}
+          resetError={() => setError(null)}
+          setIsLoadMoreVisible={setIsLoadMoreVisible}
+        />
+
         <ul className={`${classes.links} ${classes["hide-links"]}`}>
           <li className={classes.links}>
             <NavLink
@@ -44,5 +57,3 @@ function MainNavigation() {
     </header>
   );
 }
-
-export default MainNavigation;

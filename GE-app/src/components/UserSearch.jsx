@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import classes from "./UserSearch.module.css";
 import UserCard from "./UserCard";
 import ErrorMessage from "./ErrorMessage";
+import { ErrorContext } from "./ErrorContext";
 
-function UserSearch() {
+export default function UserSearch() {
   const [searchQuery, setSearchQuery] = useState("");
   const [visibleUsers, setVisibleUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
   const [totalUsers, setTotalUsers] = useState(0);
   const [recentSearches, setRecentSearches] = useState([]);
-  const [isLoadMoreVisible, setIsLoadMoreVisible] = useState(true); 
+
+  const { error, setError } = useContext(ErrorContext);
+  const { isLoadMoreVisible, setIsLoadMoreVisible } = useContext(ErrorContext);
 
   useEffect(() => {
     const savedSearches =
@@ -97,6 +99,7 @@ function UserSearch() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Enter a username"
+          disabled={error === "Unable to fetch users."}
         />
         <button
           className={classes.searchBtn}
@@ -108,12 +111,6 @@ function UserSearch() {
       </div>
 
       {isLoading && <p className={classes["error-loading"]}>Loading...</p>}
-
-      <ErrorMessage
-        error={error}
-        resetError={() => setError(null)}
-        setIsLoadMoreVisible={setIsLoadMoreVisible}
-      />
 
       {visibleUsers.length === 0 && recentSearches.length > 0 && (
         <div className={classes.recentSearchesContainer}>
@@ -127,7 +124,10 @@ function UserSearch() {
           <ul>
             {recentSearches.map((query, index) => (
               <li key={index} className={classes.recentSearchItem}>
-                <button onClick={() => handleRecentSearchClick(query)}>
+                <button
+                  onClick={() => handleRecentSearchClick(query)}
+                  disabled={error === "Unable to fetch users."}
+                >
                   {query}
                 </button>
               </li>
@@ -158,5 +158,3 @@ function UserSearch() {
     </div>
   );
 }
-
-export default UserSearch;

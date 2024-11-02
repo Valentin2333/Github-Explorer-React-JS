@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./ErrorMessage.module.css";
 
-function ErrorMessage({ error, resetError, setIsLoadMoreVisible }) {
+export default function ErrorMessage({ error, resetError, setIsLoadMoreVisible }) {
   const [timer, setTimer] = useState(0);
 
   useEffect(() => {
@@ -43,5 +43,3 @@ function ErrorMessage({ error, resetError, setIsLoadMoreVisible }) {
     </div>
   );
 }
-
-export default ErrorMessage;

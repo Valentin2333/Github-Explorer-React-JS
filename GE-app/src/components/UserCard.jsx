@@ -1,7 +1,7 @@
 import classes from "./UserCard.module.css";
 import { Link } from "react-router-dom";
 
-function UserCard({user}) {
+export default function UserCard({user}) {
   return (
     <Link to={`users/${user.login}`} className={classes.userCard}>
       <img
@@ -18,4 +18,3 @@ function UserCard({user}) {
   );
 }
 
-export default UserCard;

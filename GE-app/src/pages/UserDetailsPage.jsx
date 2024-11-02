@@ -1,7 +1,5 @@
 import UserDetails from "../components/UserDetails";
 
-function UserDetailsPage() {
+export default function UserDetailsPage() {
   return <UserDetails />;
 }
-
-export default UserDetailsPage;

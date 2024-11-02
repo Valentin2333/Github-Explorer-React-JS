@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage";
 import RootLayout from "./pages/Root";
 import UserDetailsPage from "./pages/UserDetailsPage";
 import classes from "./App.module.css";
+import ErrorContextProvider from "./components/ErrorContext";
 
 const router = createBrowserRouter([
   {
@@ -17,11 +18,13 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className={classes["page-container"]}>
-      <div className={classes.box}>
-        <RouterProvider router={router} />
+    <ErrorContextProvider>
+      <div className={classes["page-container"]}>
+        <div className={classes.box}>
+          <RouterProvider router={router} />
+        </div>
       </div>
-    </div>
+    </ErrorContextProvider>
   );
 }
 

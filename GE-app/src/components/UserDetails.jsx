@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import classes from "./UserDetails.module.css";
 
-function UserDetails() {
+export default function UserDetails() {
   const params = useParams();
 
   return (
@@ -14,4 +14,3 @@ function UserDetails() {
   );
 }
 
-export default UserDetails;
